@@ -9,16 +9,17 @@
 <meta property="og:description" content="Embedded systems, computer vision, biomedical instrumentation and industrial automation. Portfolio and CV.">
 <meta property="og:image" content="https://joseaql.github.io/assets/img/og.jpg">
 <meta property="og:url" content="https://joseaql.github.io/">
-<meta name="theme-color" content="#4F46E5">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234F46E5'/%3E%3Cpath d='M6 20h6l3-8 3 8h8' stroke='%23F0B37E' stroke-width='2.6' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#3A1D8A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%233A1D8A'/%3E%3Cpath d='M6 20h6l3-8 3 8h8' stroke='%23E3B341' stroke-width='2.6' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Archivo";src:url(assets/fonts/archivo-latin-wdth-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
 @font-face{font-family:"Source Serif 4";src:url(assets/fonts/source-serif-4-latin-opsz-normal.woff2) format("woff2");font-weight:200 900;font-display:swap}
 @font-face{font-family:"Source Serif 4";src:url(assets/fonts/source-serif-4-latin-opsz-italic.woff2) format("woff2");font-weight:200 900;font-style:italic;font-display:swap}
 :root{
-  --paper:#F5F6FA; --panel:#FFFFFF; --ink:#181C3A; --muted:#575D78; --line:#DCDFEA;
-  --indigo:#4F46E5; --indigo-deep:#2E2A8F; --copper:#B86A26; --copper-soft:#F6E7D8;
+  --paper:#FBF9F4; --panel:#FFFFFF; --ink:#1B1338; --muted:#5B5674; --line:#E3DDEF;
+  --mask:#3A1D8A; --mask-deep:#2B1368; --trace:#5A36C4; --link:#4A27B8;
+  --gold:#E3B341; --gold-deep:#8A5A00; --chip:#15102B;
   --sans:"Archivo",system-ui,sans-serif; --serif:"Source Serif 4",Georgia,serif;
 }
 *{box-sizing:border-box}
@@ -26,157 +27,179 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 17.5px/1.62 var(--serif);-webkit-font-smoothing:antialiased}
 html[data-lang=es] [lang=en], html[data-lang=en] [lang=es]{display:none}
-a{color:var(--indigo)}
-a:hover{color:var(--indigo-deep)}
-:focus-visible{outline:3px solid var(--copper);outline-offset:2px;border-radius:3px}
-h1,h2,h3,h4,.sans{font-family:var(--sans);letter-spacing:-.01em}
+a{color:var(--link)}
+a:hover{color:var(--mask-deep)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--sans);letter-spacing:-.01em}
 img{max-width:100%;height:auto;display:block}
 
-/* barra superior */
-.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top-in{max-width:1200px;margin:auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:28px}
-.brand{font:700 17px var(--sans);font-stretch:112%;color:var(--ink);text-decoration:none;white-space:nowrap}
-.nav{display:flex;gap:22px;margin-left:auto;font:500 15px var(--sans)}
-.nav a{color:var(--muted);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
-.nav a:hover{color:var(--ink);border-color:var(--copper)}
-.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;font:600 13px var(--sans)}
-.lang button{border:0;background:none;padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--muted);font:inherit}
+.top{position:sticky;top:0;z-index:20;background:rgba(251,249,244,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1240px;margin:auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:28px}
+.brand{font:750 17px var(--sans);font-stretch:118%;color:var(--ink);text-decoration:none;white-space:nowrap}
+.nav{display:flex;gap:22px;margin-left:auto;font:550 15px var(--sans)}
+.nav a{color:var(--muted);text-decoration:none;padding:6px 0;border-bottom:3px solid transparent}
+.nav a:hover{color:var(--ink);border-color:var(--gold)}
+.lang{display:flex;border:1.5px solid var(--ink);border-radius:999px;padding:2px;font:700 13px var(--sans)}
+.lang button{border:0;background:none;padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--ink);font:inherit}
 .lang button[aria-pressed=true]{background:var(--ink);color:#fff}
 
-/* rejilla tipo página académica */
-.wrap{max-width:1200px;margin:auto;padding:40px 24px 0;display:grid;grid-template-columns:270px minmax(0,1fr);gap:56px}
-.side{position:sticky;top:96px;align-self:start;font-family:var(--sans)}
-.side img{width:190px;height:190px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:0 0 0 1px var(--line)}
-.side h1{font-size:26px;line-height:1.12;font-weight:750;font-stretch:108%;margin:20px 0 6px}
-.side .role{color:var(--muted);font-size:15px;line-height:1.45;margin:0 0 18px}
-.side ul{list-style:none;padding:0;margin:0 0 22px;font-size:14.5px}
-.side li{display:flex;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
-.side li:last-child{border-bottom:1px solid var(--line)}
-.side svg{flex:none;width:17px;height:17px;stroke:var(--indigo);fill:none;stroke-width:1.8}
-.side li a{color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
-.side li a:hover{color:var(--indigo)}
-.cvbox{display:grid;gap:8px}
-
-.btn{display:inline-flex;align-items:center;gap:8px;font:600 14.5px var(--sans);text-decoration:none;color:#fff;background:var(--indigo);padding:10px 16px;border-radius:8px;border:1px solid var(--indigo)}
-.btn:hover{background:var(--indigo-deep);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;font:650 14.5px var(--sans);text-decoration:none;color:#fff;background:var(--mask);padding:10px 16px;border-radius:8px;border:1.5px solid var(--mask)}
+.btn:hover{background:var(--mask-deep);border-color:var(--mask-deep);color:#fff}
 .btn small{font-weight:500;opacity:.8}
-.btn.ghost{background:transparent;color:var(--indigo)}
-.btn.ghost:hover{background:#EEEDFC;color:var(--indigo-deep)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.btn.gold:hover{background:#F0C55C;border-color:#F0C55C;color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--link);border-color:var(--link)}
+.btn.ghost:hover{background:#EFEAFB;color:var(--mask-deep)}
 
-main{min-width:0;padding-bottom:40px}
-section{padding:8px 0 56px}
-h2{font-size:30px;font-weight:720;font-stretch:110%;margin:0 0 22px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
-
-/* portada: la señal */
-.hero{padding-top:6px}
-.hero h2.claim{border:0;padding:0;margin:0;font-size:clamp(36px,5.4vw,64px);line-height:1.02;font-weight:780;font-stretch:118%;letter-spacing:-.025em;max-width:13ch}
-.signal{display:block;width:100%;height:auto;margin:22px 0 26px;overflow:visible}
-.signal .wave{stroke:var(--indigo);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.signal .trace{stroke:var(--copper);stroke-width:3.5;fill:none;stroke-linejoin:round}
-.signal .pad{fill:var(--paper);stroke:var(--copper);stroke-width:3.5}
-.signal .axis{stroke:var(--line);stroke-width:1}
+/* la placa */
+.board{position:relative;width:calc(100% - 32px);max-width:1240px;margin:20px auto 0;border-radius:22px;color:#fff;
+  background:radial-gradient(120% 90% at 12% 0%,#4C29AE 0%,var(--mask) 45%,var(--mask-deep) 100%);
+  box-shadow:0 6px 0 #1C0B4A,0 30px 50px -28px rgba(43,19,104,.6);
+  padding:60px 68px 76px;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:36px;align-items:center;overflow:hidden}
+.board>*{position:relative;z-index:1}
+.hole{position:absolute!important;width:20px;height:20px;border-radius:50%;background:var(--paper);box-shadow:0 0 0 5px var(--gold),inset 0 3px 3px rgba(0,0,0,.4)}
+.hole.a{top:20px;left:20px}.hole.b{top:20px;right:20px}.hole.c{bottom:20px;left:20px}.hole.d{bottom:20px;right:20px}
+.deco{position:absolute!important;z-index:0!important;left:0;bottom:0;width:100%;height:120px;pointer-events:none}
+.deco path{stroke:var(--trace);stroke-width:3;fill:none;opacity:.75}
+.deco circle{fill:var(--mask-deep);stroke:var(--trace);stroke-width:3;opacity:.9}
+.who{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+.who img{width:92px;height:92px;border-radius:50%;object-fit:cover;border:5px solid var(--gold);box-shadow:0 0 0 5px var(--mask-deep)}
+.who p{margin:0;font:500 15.5px/1.4 var(--sans);color:#D9D0F7}
+.board h1{margin:0;font-size:clamp(34px,4.9vw,66px);line-height:.98;font-weight:800;font-stretch:125%;letter-spacing:-.03em;color:#FDFBF5}
+.claim{font:italic 400 clamp(21px,2.3vw,29px)/1.25 var(--serif);color:var(--gold);margin:22px 0 14px}
+.board .lead{margin:0 0 28px;max-width:52ch;font-size:18px;color:#E9E3FA}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.board .btn.ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+.board .btn.ghost:hover{background:rgba(255,255,255,.12);color:#fff}
+.route{width:100%;height:auto;overflow:visible}
+.route .tr{stroke:var(--gold);stroke-width:5;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.route .pin{fill:var(--gold)}
+.route .body{fill:var(--chip);stroke:#2C2450;stroke-width:2}
+.route .silk{font-family:var(--sans);fill:#FDFBF5}
+.route a text{font:650 20px var(--sans);fill:#FDFBF5}
+.route a .pad{fill:var(--gold);transition:r .15s}
+.route a .drill{fill:var(--mask-deep)}
+.route a:hover .pad,.route a:focus-visible .pad{r:17}
+.route a:hover text{fill:var(--gold)}
+.route a:focus-visible{outline:none}
+.route a:focus-visible text{fill:var(--gold);text-decoration:underline}
 @media (prefers-reduced-motion:no-preference){
-  .signal .wave,.signal .trace{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s cubic-bezier(.6,0,.2,1) .25s forwards}
-  .signal .trace{animation-delay:1.45s;animation-duration:.9s}
-  .signal .pad{opacity:0;animation:pop .3s ease 2.3s forwards}
+  .route .tr{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .9s cubic-bezier(.6,0,.2,1) forwards}
+  .route .tr:nth-of-type(1){animation-delay:.35s}.route .tr:nth-of-type(2){animation-delay:.5s}
+  .route .tr:nth-of-type(3){animation-delay:.65s}.route .tr:nth-of-type(4){animation-delay:.8s}
+  .route a{opacity:0;animation:pop .35s ease forwards}
+  .route a:nth-of-type(1){animation-delay:1.15s}.route a:nth-of-type(2){animation-delay:1.3s}
+  .route a:nth-of-type(3){animation-delay:1.45s}.route a:nth-of-type(4){animation-delay:1.6s}
   @keyframes draw{to{stroke-dashoffset:0}}
   @keyframes pop{to{opacity:1}}
 }
-.intro{max-width:64ch;font-size:19px}
-.intro p{margin:0 0 14px}
-.seeking{font:500 16px/1.5 var(--sans);color:var(--muted);border-left:3px solid var(--copper);padding:4px 0 4px 14px;margin:20px 0 26px;max-width:62ch}
-.cta{display:flex;flex-wrap:wrap;gap:10px}
 
-/* experiencia */
+.wrap{max-width:1240px;margin:auto;padding:56px 24px 0;display:grid;grid-template-columns:250px minmax(0,1fr);gap:60px}
+.side{position:sticky;top:88px;align-self:start;font-family:var(--sans)}
+.side .role{color:var(--ink);font:600 15.5px/1.45 var(--sans);margin:0 0 16px}
+.side ul{list-style:none;padding:0;margin:0 0 20px;font-size:14.5px}
+.side li{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.side li:last-child{border-bottom:1px solid var(--line)}
+.side svg{flex:none;width:17px;height:17px;stroke:var(--link);fill:none;stroke-width:1.8}
+.side li a{color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
+.side li a:hover{color:var(--link)}
+.cvbox{display:grid;gap:8px}
+
+main{min-width:0;padding-bottom:40px}
+section{padding:0 0 60px}
+h2{font-size:33px;font-weight:800;font-stretch:125%;letter-spacing:-.02em;margin:0 0 26px;display:flex;align-items:center;gap:16px}
+h2::after{content:"";flex:1;height:18px;min-width:40px;
+  background:linear-gradient(var(--mask),var(--mask)) left center/calc(100% - 16px) 3px no-repeat,
+             radial-gradient(circle,var(--paper) 0 3px,var(--gold) 3.6px 8px,transparent 8.6px) right center/18px 18px no-repeat}
+.intro{max-width:66ch;font-size:19px}
+.intro p{margin:0 0 14px}
+
 .tl{list-style:none;margin:0;padding:0;position:relative}
 .tl>li{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:0 0 30px;position:relative}
-.tl>li::before{content:"";position:absolute;left:163px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--indigo);z-index:1}
-.tl::before{content:"";position:absolute;left:170px;top:12px;bottom:30px;width:2px;background:var(--line)}
+.tl>li::before{content:"";position:absolute;left:162px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:4px solid var(--gold);z-index:1}
+.tl::before{content:"";position:absolute;left:169.5px;top:12px;bottom:30px;width:3px;background:var(--mask)}
 .tl>li>div:last-child{padding-left:22px}
-.when{font:500 14px/1.6 var(--sans);color:var(--muted);text-align:right;padding-top:3px;font-variant-numeric:tabular-nums}
-.tl h3{font-size:19px;margin:0;line-height:1.3;font-weight:650}
-.org{margin:2px 0 8px;font:500 15.5px var(--sans);color:var(--indigo-deep)}
+.when{font:550 14px/1.6 var(--sans);color:var(--muted);text-align:right;padding-top:3px;font-variant-numeric:tabular-nums}
+.tl h3{font-size:19.5px;margin:0;line-height:1.3;font-weight:700}
+.org{margin:2px 0 8px;font:600 15.5px var(--sans);color:var(--link)}
 .bul{margin:0;padding-left:1.1em}
 .bul li{margin:3px 0}
-.bul li::marker{color:var(--copper)}
+.bul li::marker{color:var(--gold-deep)}
 
-/* proyectos */
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
-.filters button{font:500 14.5px var(--sans);border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
-.filters button:hover{border-color:var(--indigo)}
-.filters button[aria-pressed=true]{background:var(--indigo);border-color:var(--indigo);color:#fff}
-.proj{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:30px;padding:30px 0;border-top:1px solid var(--line)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 30px}
+.filters button{font:600 14.5px var(--sans);border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+.filters button:hover{background:#EFEAFB}
+.filters button[aria-pressed=true]{background:var(--mask);border-color:var(--mask);color:#fff}
+.proj{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:34px;padding:34px 0;border-top:1px solid var(--line)}
 .proj:first-of-type{border-top:0;padding-top:4px}
 .proj[hidden]{display:none}
-.proj-fig{margin:0;align-self:start;border-radius:10px;overflow:hidden;background:#fff;border:1px solid var(--line);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center}
-.proj-fig img{width:100%;height:100%;object-fit:cover}
-.proj-fig svg{width:100%;height:100%;display:block}
-.proj-ctx{margin:0 0 4px;font:500 14px var(--sans);color:var(--copper)}
-.proj h3{font-size:23px;line-height:1.18;margin:0 0 10px;font-weight:700;font-stretch:106%}
+.proj-fig{margin:0;align-self:start;border-radius:14px;overflow:hidden;background:var(--mask-deep);padding:9px;aspect-ratio:16/10.6;display:flex;box-shadow:0 5px 0 #1C0B4A}
+.proj-fig img,.proj-fig svg{width:100%;height:100%;object-fit:cover;border-radius:7px;display:block;background:#fff}
+.proj-fig svg{background:#2B1368}
+.proj-ctx{margin:0 0 4px;font:600 14px var(--sans);color:var(--gold-deep)}
+.proj h3{font-size:25px;line-height:1.14;margin:0 0 10px;font-weight:800;font-stretch:112%;letter-spacing:-.015em}
 .proj-body>p{margin:0 0 10px}
-.stack{font:500 14.5px var(--sans);color:var(--muted);margin:12px 0 8px!important}
+.stack{font:550 14.5px var(--sans);color:var(--muted);margin:12px 0 8px!important}
 .tags{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px}
-.tags li{font:500 12.5px var(--sans);background:#ECEBFB;color:var(--indigo-deep);padding:3px 9px;border-radius:5px}
+.tags li{font:600 12.5px var(--sans);background:#ECE6FA;color:var(--mask);padding:3px 9px;border-radius:5px}
 .dl{display:flex;flex-wrap:wrap;gap:8px}
 .dl .btn{font-size:14px;padding:8px 13px}
 .dl-note{font:400 14.5px/1.5 var(--sans);color:var(--muted);margin:26px 0 0}
 
 .otros{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 36px}
 .otros li{padding:14px 0;border-top:1px solid var(--line)}
-.otros h4{font-size:17px;margin:0 0 4px;font-weight:650}
-.otros h4 small{font-weight:500;color:var(--copper);font-size:13.5px;margin-left:4px}
-.otros p{margin:0;font-size:16px;color:#33385A}
-
-/* habilidades */
+.otros h4{font-size:17px;margin:0 0 4px;font-weight:700}
+.otros h4 small{font-weight:600;color:var(--gold-deep);font-size:13.5px;margin-left:4px}
+.otros p{margin:0;font-size:16px;color:#3A3357}
 .skills{display:grid;grid-template-columns:1fr 1fr;gap:0 36px;margin:0}
 .skills>div{padding:13px 0;border-top:1px solid var(--line)}
-.skills dt{font:650 15.5px var(--sans);margin-bottom:3px}
-.skills dd{margin:0;font-size:16px;color:#33385A}
-
+.skills dt{font:700 15.5px var(--sans);margin-bottom:3px;color:var(--mask)}
+.skills dd{margin:0;font-size:16px;color:#3A3357}
 .edu{list-style:none;padding:0;margin:0}
 .edu li{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:12px 0;border-top:1px solid var(--line)}
-.edu h3{font-size:19px;margin:0;font-weight:650}
+.edu h3{font-size:19.5px;margin:0;font-weight:700}
 .edu p{margin:2px 0 0;color:var(--muted)}
 
-footer{border-top:1px solid var(--line);margin-top:20px;background:var(--panel)}
-.foot{max-width:1200px;margin:auto;padding:34px 24px 44px;display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between;font:400 15px var(--sans);color:var(--muted)}
-.foot strong{color:var(--ink);font-size:20px;font-weight:700;display:block;margin-bottom:4px}
+footer .board{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 40px;padding:54px 68px 60px;margin-bottom:28px}
+footer h2{color:#FDFBF5;margin:0 0 6px;font-size:clamp(30px,4vw,48px);display:block}
+footer h2::after{content:none}
+footer p{margin:0;color:#E9E3FA;font-family:var(--sans);font-size:16px}
 
 @media (max-width:980px){
-  .wrap{grid-template-columns:1fr;gap:28px;padding-top:28px}
-  .side{position:static;display:grid;grid-template-columns:120px 1fr;gap:4px 22px;align-items:center}
-  .side img{width:120px;height:120px;grid-row:span 2}
-  .side h1{margin:0}
-  .side .role{margin:0}
-  .side ul,.cvbox{grid-column:1/-1}
-  .side ul{margin:14px 0 6px;display:grid;grid-template-columns:1fr 1fr;column-gap:20px}
+  .board{grid-template-columns:1fr;padding:52px 36px 64px}
+  .route{max-width:520px}
+  .wrap{grid-template-columns:1fr;gap:34px;padding-top:40px}
+  .side{position:static}
+  .side .cvbox{display:none}
+  .side ul{margin-bottom:0;display:grid;grid-template-columns:1fr 1fr;column-gap:24px}
   .side li:nth-last-child(2){border-bottom:1px solid var(--line)}
-  .cvbox{grid-template-columns:1fr 1fr}
-  .nav{display:none}
-  .lang{margin-left:auto}
+  .nav{display:none}.lang{margin-left:auto}
 }
 @media (max-width:680px){
   body{font-size:17px}
-  .top-in{height:56px;padding:0 16px}
-  .wrap{padding:22px 16px 0}
-  .side{grid-template-columns:92px 1fr}
-  .side img{width:92px;height:92px;border-width:3px}
-  .side h1{font-size:22px}
-  .side .role{font-size:14px}
+  .top-in{height:54px;padding:0 16px}
+  .board{width:calc(100% - 20px);margin-top:10px;border-radius:16px;padding:48px 22px 58px}
+  .hole{width:14px;height:14px;box-shadow:0 0 0 4px var(--gold),inset 0 2px 2px rgba(0,0,0,.4)}
+  .hole.a,.hole.b{top:14px}.hole.c,.hole.d{bottom:14px}.hole.a,.hole.c{left:14px}.hole.b,.hole.d{right:14px}
+  .who img{width:72px;height:72px;border-width:4px}
+  .deco{display:none}
+  .route a text{font-size:23px}
+  .board .lead{font-size:17px}
+  .wrap{padding:32px 16px 0}
   .side ul{grid-template-columns:1fr}
   .side li:nth-last-child(2){border-bottom:0}
-  .cvbox{grid-template-columns:1fr}
   .proj{grid-template-columns:1fr;gap:16px}
-  .tl::before{left:7px}
+  .tl::before{left:5.5px}
   .tl>li{grid-template-columns:1fr;gap:2px;padding-left:30px}
   .tl>li::before{left:0}
   .tl>li>div:last-child{padding-left:0}
   .when{text-align:left}
   .otros,.skills{grid-template-columns:1fr}
   .edu li{grid-template-columns:1fr;gap:2px}
-  h2{font-size:26px}
+  h2{font-size:27px}
+  footer .board{padding:46px 22px 52px}
 }
-@media print{.top,.filters,.dl,.cta{display:none}.wrap{display:block}.side{position:static}}
+@media print{.top,.filters,.dl,.cta{display:none}.wrap{display:block}}
 </style>
 </head>
 <body>
@@ -197,10 +220,32 @@ footer{border-top:1px solid var(--line);margin-top:20px;background:var(--panel)}
   </div>
 </header>
 
-<div class="wrap" id="inicio">
+<header class="board" id="inicio">
+  <span class="hole a"></span><span class="hole b"></span><span class="hole c"></span><span class="hole d"></span>
+  <svg class="deco" viewBox="0 0 1240 120" preserveAspectRatio="xMinYMax slice" aria-hidden="true">
+    <path d="M70 104 H420 L444 80 H760"/><path d="M70 90 H400 L438 52 H640"/><path d="M900 104 H1010 L1040 74 H1170"/>
+    <circle cx="760" cy="80" r="6"/><circle cx="640" cy="52" r="6"/><circle cx="900" cy="104" r="6"/>
+  </svg>
+  <div>
+    <div class="who"><img src="assets/img/foto.jpg" width="560" height="560" alt=""><p><span lang="es">Estudiante de Ingeniería Electrónica, UAA<br>Practicante de visión artificial, CIO</span><span lang="en">Electronics Engineering student, UAA<br>Computer vision intern, CIO</span></p></div>
+    <h1>José Antonio<br>Quiroz Luna</h1>
+    <p class="claim"><span lang="es">Hardware que ve, mide y se controla.</span><span lang="en">Hardware that sees, measures and controls.</span></p>
+    <p class="lead"><span lang="es">Reparo equipo médico a nivel componente y entreno detectores YOLO que corren en una Jetson Nano. Busco un puesto en sistemas embebidos, visión artificial, instrumentación biomédica o automatización industrial.</span><span lang="en">I repair medical equipment at component level and train YOLO detectors that run on a Jetson Nano. Looking for a role in embedded systems, computer vision, biomedical instrumentation or industrial automation.</span></p>
+    <div class="cta"><a class="btn gold" lang="es" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_ES.pdf" download>Descargar CV (PDF)</a><a class="btn gold" lang="en" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_EN.pdf" download>Download CV (PDF)</a><a class="btn ghost" href="#proyectos"><span lang="es">Ver proyectos</span><span lang="en">See projects</span></a><a class="btn ghost" href="mailto:joseantonioquirozluna@gmail.com"><span lang="es">Escríbeme</span><span lang="en">Email me</span></a></div>
+  </div>
+  <svg class="route" viewBox="0 0 580 440" role="group" aria-label="Áreas / Fields">
+  <path class="tr" pathLength="1" d="M200 186 H236 L362 60 H548"/><path class="tr" pathLength="1" d="M200 210 H262 L307 165 H548"/><path class="tr" pathLength="1" d="M200 234 H262 L303 275 H548"/><path class="tr" pathLength="1" d="M200 258 H236 L358 380 H548"/>
+  <rect class="pin" x="55" y="126" width="10" height="18"/><rect class="pin" x="55" y="296" width="10" height="18"/><rect class="pin" x="18" y="157" width="18" height="10"/><rect class="pin" x="184" y="157" width="18" height="10"/><rect class="pin" x="79" y="126" width="10" height="18"/><rect class="pin" x="79" y="296" width="10" height="18"/><rect class="pin" x="18" y="181" width="18" height="10"/><rect class="pin" x="184" y="181" width="18" height="10"/><rect class="pin" x="103" y="126" width="10" height="18"/><rect class="pin" x="103" y="296" width="10" height="18"/><rect class="pin" x="18" y="205" width="18" height="10"/><rect class="pin" x="184" y="205" width="18" height="10"/><rect class="pin" x="127" y="126" width="10" height="18"/><rect class="pin" x="127" y="296" width="10" height="18"/><rect class="pin" x="18" y="229" width="18" height="10"/><rect class="pin" x="184" y="229" width="18" height="10"/><rect class="pin" x="151" y="126" width="10" height="18"/><rect class="pin" x="151" y="296" width="10" height="18"/><rect class="pin" x="18" y="253" width="18" height="10"/><rect class="pin" x="184" y="253" width="18" height="10"/>
+  <rect class="body" x="34" y="142" width="152" height="156" rx="8"/>
+  <circle cx="52" cy="160" r="5" fill="#3A3360"/>
+  <text class="silk" x="110" y="222" text-anchor="middle" font-size="34" font-weight="800" style="font-stretch:120%">JAQL</text>
+  <text class="silk" x="110" y="250" text-anchor="middle" font-size="14" font-weight="500" opacity=".75">UAA · 2026</text>
+  <a href="#proyectos" data-f="emb"><rect x="290" y="24" width="290" height="62" fill="transparent"/><circle class="pad" cx="548" cy="60" r="14"/><circle class="drill" cx="548" cy="60" r="5"/><text lang="es" x="522" y="48" text-anchor="end">Sistemas embebidos</text><text lang="en" x="522" y="48" text-anchor="end">Embedded systems</text></a><a href="#proyectos" data-f="vision"><rect x="290" y="129" width="290" height="62" fill="transparent"/><circle class="pad" cx="548" cy="165" r="14"/><circle class="drill" cx="548" cy="165" r="5"/><text lang="es" x="522" y="153" text-anchor="end">Visión artificial</text><text lang="en" x="522" y="153" text-anchor="end">Computer vision</text></a><a href="#proyectos" data-f="bio"><rect x="290" y="251" width="290" height="62" fill="transparent"/><circle class="pad" cx="548" cy="275" r="14"/><circle class="drill" cx="548" cy="275" r="5"/><text lang="es" x="522" y="307" text-anchor="end">Equipo biomédico</text><text lang="en" x="522" y="307" text-anchor="end">Biomedical equipment</text></a><a href="#proyectos" data-f="ind"><rect x="290" y="356" width="290" height="62" fill="transparent"/><circle class="pad" cx="548" cy="380" r="14"/><circle class="drill" cx="548" cy="380" r="5"/><text lang="es" x="522" y="412" text-anchor="end">Automatización industrial</text><text lang="en" x="522" y="412" text-anchor="end">Industrial automation</text></a>
+</svg>
+</header>
+
+<div class="wrap">
   <aside class="side">
-    <img src="assets/img/foto.jpg" width="560" height="560" alt="José Antonio Quiroz Luna">
-    <h1>José Antonio Quiroz Luna</h1>
     <p class="role"><span lang="es">Estudiante de Ingeniería Electrónica, 9.º semestre, UAA. Técnico en Mecatrónica.</span><span lang="en">Electronics Engineering student, 9th semester, UAA. Mechatronics technician.</span></p>
     <ul>
       <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Aguascalientes, <span lang="es">México</span><span lang="en">Mexico</span></span></li>
@@ -209,30 +254,19 @@ footer{border-top:1px solid var(--line);margin-top:20px;background:var(--panel)}
       <li><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span><span lang="es">Inglés técnico B1/B2</span><span lang="en">Technical English B1/B2</span></span></li>
     </ul>
     <div class="cvbox">
-      <a class="btn" lang="es" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_ES.pdf" download>Descargar CV (PDF)</a>
+      <a class="btn gold" lang="es" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_ES.pdf" download>Descargar CV (PDF)</a>
       <a class="btn ghost" lang="es" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_EN.pdf" download>CV en inglés</a>
-      <a class="btn" lang="en" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_EN.pdf" download>Download CV (PDF)</a>
+      <a class="btn gold" lang="en" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_EN.pdf" download>Download CV (PDF)</a>
       <a class="btn ghost" lang="en" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_ES.pdf" download>CV in Spanish</a>
     </div>
   </aside>
 
   <main>
-    <section class="hero" aria-labelledby="claim">
-      <h2 class="claim" id="claim"><span lang="es">Hardware que ve, mide y se controla.</span><span lang="en">Hardware that sees, measures and controls.</span></h2>
-      <svg class="signal" viewBox="0 0 800 70" aria-hidden="true">
-        <line class="axis" x1="0" y1="35" x2="800" y2="35"/>
-        <path class="wave" pathLength="1" d="M2 35 C 22 35 26 8 46 8 S 70 62 90 62 S 114 8 134 8 S 158 62 178 62 S 202 14 222 14 S 246 56 266 56 S 290 22 310 22 S 334 48 354 48 S 378 30 398 35 L 430 35"/>
-        <path class="trace" pathLength="1" d="M430 35 H 560 L 585 12 H 700 L 725 35 H 778"/>
-        <circle class="pad" cx="785" cy="35" r="9"/>
-      </svg>
+    <section id="perfil">
+      <h2><span lang="es">Perfil</span><span lang="en">Profile</span></h2>
       <div class="intro">
         <p><span lang="es">Trabajo donde la electrónica toca el mundo real: equipo médico, visión artificial en dispositivos pequeños y máquinas industriales. He reparado máquinas de anestesia y sensores de rayos X a nivel componente, y hoy entreno detectores YOLO que corren en una Jetson Nano durante mis prácticas en el Centro de Investigaciones en Óptica.</span><span lang="en">I work where electronics meets the real world: medical equipment, computer vision on small devices and industrial machines. I have repaired anesthesia machines and X-ray sensors at component level, and today I train YOLO detectors that run on a Jetson Nano during my internship at the Centro de Investigaciones en Óptica (CIO).</span></p>
         <p><span lang="es">Me gusta llevar un proyecto de la idea al aparato funcionando: esquemático, firmware, software, pieza impresa y documentación. Todo lo que ves abajo se puede descargar.</span><span lang="en">I like taking a project from idea to working device: schematic, firmware, software, printed parts and documentation. Everything below can be downloaded.</span></p>
-      </div>
-      <p class="seeking"><span lang="es">Busco un puesto en sistemas embebidos, visión artificial, instrumentación biomédica o automatización industrial.</span><span lang="en">Looking for a role in embedded systems, computer vision, biomedical instrumentation or industrial automation.</span></p>
-      <div class="cta">
-        <a class="btn" href="#proyectos"><span lang="es">Ver proyectos</span><span lang="en">See projects</span></a>
-        <a class="btn ghost" href="mailto:joseantonioquirozluna@gmail.com"><span lang="es">Escríbeme</span><span lang="en">Email me</span></a>
       </div>
     </section>
 
@@ -246,7 +280,7 @@ footer{border-top:1px solid var(--line);margin-top:20px;background:var(--panel)}
       <div class="filters" role="group" aria-label="Filtrar proyectos"><button type="button" data-f="all" aria-pressed="true"><span lang="es">Todos</span><span lang="en">All</span></button><button type="button" data-f="vision" aria-pressed="false"><span lang="es">Visión artificial</span><span lang="en">Computer vision</span></button><button type="button" data-f="bio" aria-pressed="false"><span lang="es">Biomédico</span><span lang="en">Biomedical</span></button><button type="button" data-f="emb" aria-pressed="false"><span lang="es">Embebidos</span><span lang="en">Embedded</span></button><button type="button" data-f="ind" aria-pressed="false"><span lang="es">Industrial</span><span lang="en">Industrial</span></button><button type="button" data-f="hw" aria-pressed="false"><span lang="es">Hardware</span><span lang="en">Hardware</span></button><button type="button" data-f="sw" aria-pressed="false"><span lang="es">Software</span><span lang="en">Software</span></button></div>
       <div id="lista">
 <article class="proj" id="p-asesor-de-procesos" data-tags="vision bio emb">
-  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#1E2250"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#3A3F7A"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Cámara</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">USB</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Camera</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">USB</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">visión + recetas</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">vision + steps</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Proyector</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">HDMI</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Projector</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">HDMI</text></svg></figure>
+  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#2B1368"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#4A2BA6"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#E3B341" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#E3B341" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Cámara</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">USB</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Camera</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">USB</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">visión + recetas</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">vision + steps</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Proyector</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">HDMI</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Projector</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">HDMI</text></svg></figure>
   <div class="proj-body">
     <p class="proj-ctx"><span lang="es">Prácticas profesionales, CIO</span><span lang="en">Professional internship, CIO</span></p>
     <h3><span lang="es">Asesor de procesos con realidad aumentada</span><span lang="en">Augmented-reality process advisor</span></h3>
@@ -294,7 +328,7 @@ footer{border-top:1px solid var(--line);margin-top:20px;background:var(--panel)}
   </div>
 </article>
 <article class="proj" id="p-estacion" data-tags="vision emb">
-  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#1E2250"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#3A3F7A"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Cámara</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">manos</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Camera</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">hands</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">poseNet en GPU</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">poseNet on GPU</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Proyector</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">menú en la mesa</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Projector</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">table menu</text></svg></figure>
+  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#2B1368"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#4A2BA6"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#E3B341" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#E3B341" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Cámara</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">manos</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Camera</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">hands</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">poseNet en GPU</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">poseNet on GPU</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Proyector</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">menú en la mesa</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Projector</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">table menu</text></svg></figure>
   <div class="proj-body">
     <p class="proj-ctx"><span lang="es">Jetson Nano y Raspberry Pi 4</span><span lang="en">Jetson Nano and Raspberry Pi 4</span></p>
     <h3><span lang="es">Mesa interactiva por proyección</span><span lang="en">Interactive projection table</span></h3>
@@ -306,7 +340,7 @@ footer{border-top:1px solid var(--line);margin-top:20px;background:var(--panel)}
   </div>
 </article>
 <article class="proj" id="p-juego-kinect" data-tags="vision sw">
-  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#1E2250"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#3A3F7A"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Kinect</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">profundidad</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Kinect</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">depth</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">C++</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">pose y manos</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">C++</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">pose + hands</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Impresora</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">premio</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Printer</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">prize</text></svg></figure>
+  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#2B1368"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#4A2BA6"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#E3B341" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#E3B341" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Kinect</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">profundidad</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Kinect</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">depth</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">C++</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">pose y manos</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">C++</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">pose + hands</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Impresora</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">premio</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Printer</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">prize</text></svg></figure>
   <div class="proj-body">
     <p class="proj-ctx"><span lang="es">Proyecto escolar, UAA</span><span lang="en">School project, UAA</span></p>
     <h3><span lang="es">Juego de ejercicio con Kinect</span><span lang="en">Kinect exercise game</span></h3>
@@ -366,7 +400,7 @@ footer{border-top:1px solid var(--line);margin-top:20px;background:var(--panel)}
   </div>
 </article>
 <article class="proj" id="p-nomad-pi" data-tags="emb sw">
-  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#1E2250"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#3A3F7A"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Raspberry Pi</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">4B</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Raspberry Pi</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">4B</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Hotspot</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">WiFi propio</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Hotspot</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">own WiFi</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Clientes</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">celular, laptop</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Clients</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">phone, laptop</text></svg></figure>
+  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#2B1368"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#4A2BA6"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#E3B341" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#E3B341" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#2B1368" stroke="#E3B341" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Raspberry Pi</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">4B</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Raspberry Pi</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">4B</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Hotspot</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">WiFi propio</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Hotspot</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">own WiFi</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#3A1D8A" stroke="#8E6FE8" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Clientes</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">celular, laptop</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Clients</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#D9D0F7">phone, laptop</text></svg></figure>
   <div class="proj-body">
     <p class="proj-ctx"><span lang="es">Raspberry Pi 4B</span><span lang="en">Raspberry Pi 4B</span></p>
     <h3><span lang="es">NOMAD Pi: servidor sin internet</span><span lang="en">NOMAD Pi: offline server</span></h3>
@@ -413,12 +447,10 @@ footer{border-top:1px solid var(--line);margin-top:20px;background:var(--panel)}
 </div>
 
 <footer id="contacto">
-  <div class="foot">
-    <div><strong><span lang="es">¿Hablamos?</span><span lang="en">Let's talk</span></strong><span lang="es">Respondo por correo, normalmente el mismo día.</span><span lang="en">I reply by email, usually the same day.</span></div>
-    <div class="cta">
-      <a class="btn" href="mailto:joseantonioquirozluna@gmail.com">joseantonioquirozluna@gmail.com</a>
-      <a class="btn ghost" href="https://github.com/JoseAQL">GitHub</a>
-    </div>
+  <div class="board">
+    <span class="hole a"></span><span class="hole b"></span><span class="hole c"></span><span class="hole d"></span>
+    <div><h2><span lang="es">¿Hablamos?</span><span lang="en">Let's talk</span></h2><p><span lang="es">Respondo por correo, normalmente el mismo día.</span><span lang="en">I reply by email, usually the same day.</span></p></div>
+    <div class="cta"><a class="btn gold" href="mailto:joseantonioquirozluna@gmail.com">joseantonioquirozluna@gmail.com</a><a class="btn ghost" href="https://github.com/JoseAQL">GitHub</a></div>
   </div>
 </footer>
 
@@ -437,11 +469,12 @@ footer{border-top:1px solid var(--line);margin-top:20px;background:var(--panel)}
   document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
 
   var btns=document.querySelectorAll(".filters button"), items=document.querySelectorAll(".proj");
-  btns.forEach(function(b){b.addEventListener("click",function(){
-    var f=b.dataset.f;
-    btns.forEach(function(x){x.setAttribute("aria-pressed",x===b)});
+  function setFilter(f){
+    btns.forEach(function(x){x.setAttribute("aria-pressed",x.dataset.f===f)});
     items.forEach(function(it){it.hidden=!(f==="all"||it.dataset.tags.split(" ").indexOf(f)>-1)});
-  })});
+  }
+  btns.forEach(function(b){b.addEventListener("click",function(){setFilter(b.dataset.f)})});
+  document.querySelectorAll(".route a").forEach(function(a){a.addEventListener("click",function(){setFilter(a.dataset.f)})});
 })();
 </script>
 </body>
