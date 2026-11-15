@@ -1,3 +1,448 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>José Antonio Quiroz Luna</title></head>
-<body style="font-family:system-ui;background:#0d1117;color:#e6edf3;display:grid;place-items:center;min-height:100vh;margin:0"><div style="text-align:center"><h1>José Antonio Quiroz Luna</h1><p>Ingeniería Electrónica · UAA</p><p>Página en construcción 🚧</p></div></body></html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>José Antonio Quiroz Luna · Ingeniería Electrónica</title>
+<meta name="description" content="Estudiante de Ingeniería Electrónica (UAA). Sistemas embebidos, visión artificial, instrumentación biomédica y automatización industrial. Proyectos descargables y CV.">
+<meta property="og:title" content="José Antonio Quiroz Luna">
+<meta property="og:description" content="Embedded systems, computer vision, biomedical instrumentation and industrial automation. Portfolio and CV.">
+<meta property="og:image" content="https://joseaql.github.io/assets/img/og.jpg">
+<meta property="og:url" content="https://joseaql.github.io/">
+<meta name="theme-color" content="#4F46E5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234F46E5'/%3E%3Cpath d='M6 20h6l3-8 3 8h8' stroke='%23F0B37E' stroke-width='2.6' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Archivo";src:url(assets/fonts/archivo-latin-wdth-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url(assets/fonts/source-serif-4-latin-opsz-normal.woff2) format("woff2");font-weight:200 900;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url(assets/fonts/source-serif-4-latin-opsz-italic.woff2) format("woff2");font-weight:200 900;font-style:italic;font-display:swap}
+:root{
+  --paper:#F5F6FA; --panel:#FFFFFF; --ink:#181C3A; --muted:#575D78; --line:#DCDFEA;
+  --indigo:#4F46E5; --indigo-deep:#2E2A8F; --copper:#B86A26; --copper-soft:#F6E7D8;
+  --sans:"Archivo",system-ui,sans-serif; --serif:"Source Serif 4",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17.5px/1.62 var(--serif);-webkit-font-smoothing:antialiased}
+html[data-lang=es] [lang=en], html[data-lang=en] [lang=es]{display:none}
+a{color:var(--indigo)}
+a:hover{color:var(--indigo-deep)}
+:focus-visible{outline:3px solid var(--copper);outline-offset:2px;border-radius:3px}
+h1,h2,h3,h4,.sans{font-family:var(--sans);letter-spacing:-.01em}
+img{max-width:100%;height:auto;display:block}
+
+/* barra superior */
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1200px;margin:auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:28px}
+.brand{font:700 17px var(--sans);font-stretch:112%;color:var(--ink);text-decoration:none;white-space:nowrap}
+.nav{display:flex;gap:22px;margin-left:auto;font:500 15px var(--sans)}
+.nav a{color:var(--muted);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--ink);border-color:var(--copper)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;font:600 13px var(--sans)}
+.lang button{border:0;background:none;padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--muted);font:inherit}
+.lang button[aria-pressed=true]{background:var(--ink);color:#fff}
+
+/* rejilla tipo página académica */
+.wrap{max-width:1200px;margin:auto;padding:40px 24px 0;display:grid;grid-template-columns:270px minmax(0,1fr);gap:56px}
+.side{position:sticky;top:96px;align-self:start;font-family:var(--sans)}
+.side img{width:190px;height:190px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.side h1{font-size:26px;line-height:1.12;font-weight:750;font-stretch:108%;margin:20px 0 6px}
+.side .role{color:var(--muted);font-size:15px;line-height:1.45;margin:0 0 18px}
+.side ul{list-style:none;padding:0;margin:0 0 22px;font-size:14.5px}
+.side li{display:flex;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
+.side li:last-child{border-bottom:1px solid var(--line)}
+.side svg{flex:none;width:17px;height:17px;stroke:var(--indigo);fill:none;stroke-width:1.8}
+.side li a{color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
+.side li a:hover{color:var(--indigo)}
+.cvbox{display:grid;gap:8px}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14.5px var(--sans);text-decoration:none;color:#fff;background:var(--indigo);padding:10px 16px;border-radius:8px;border:1px solid var(--indigo)}
+.btn:hover{background:var(--indigo-deep);color:#fff}
+.btn small{font-weight:500;opacity:.8}
+.btn.ghost{background:transparent;color:var(--indigo)}
+.btn.ghost:hover{background:#EEEDFC;color:var(--indigo-deep)}
+
+main{min-width:0;padding-bottom:40px}
+section{padding:8px 0 56px}
+h2{font-size:30px;font-weight:720;font-stretch:110%;margin:0 0 22px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+
+/* portada: la señal */
+.hero{padding-top:6px}
+.hero h2.claim{border:0;padding:0;margin:0;font-size:clamp(36px,5.4vw,64px);line-height:1.02;font-weight:780;font-stretch:118%;letter-spacing:-.025em;max-width:13ch}
+.signal{display:block;width:100%;height:auto;margin:22px 0 26px;overflow:visible}
+.signal .wave{stroke:var(--indigo);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.signal .trace{stroke:var(--copper);stroke-width:3.5;fill:none;stroke-linejoin:round}
+.signal .pad{fill:var(--paper);stroke:var(--copper);stroke-width:3.5}
+.signal .axis{stroke:var(--line);stroke-width:1}
+@media (prefers-reduced-motion:no-preference){
+  .signal .wave,.signal .trace{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s cubic-bezier(.6,0,.2,1) .25s forwards}
+  .signal .trace{animation-delay:1.45s;animation-duration:.9s}
+  .signal .pad{opacity:0;animation:pop .3s ease 2.3s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pop{to{opacity:1}}
+}
+.intro{max-width:64ch;font-size:19px}
+.intro p{margin:0 0 14px}
+.seeking{font:500 16px/1.5 var(--sans);color:var(--muted);border-left:3px solid var(--copper);padding:4px 0 4px 14px;margin:20px 0 26px;max-width:62ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+
+/* experiencia */
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl>li{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:0 0 30px;position:relative}
+.tl>li::before{content:"";position:absolute;left:163px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--indigo);z-index:1}
+.tl::before{content:"";position:absolute;left:170px;top:12px;bottom:30px;width:2px;background:var(--line)}
+.tl>li>div:last-child{padding-left:22px}
+.when{font:500 14px/1.6 var(--sans);color:var(--muted);text-align:right;padding-top:3px;font-variant-numeric:tabular-nums}
+.tl h3{font-size:19px;margin:0;line-height:1.3;font-weight:650}
+.org{margin:2px 0 8px;font:500 15.5px var(--sans);color:var(--indigo-deep)}
+.bul{margin:0;padding-left:1.1em}
+.bul li{margin:3px 0}
+.bul li::marker{color:var(--copper)}
+
+/* proyectos */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+.filters button{font:500 14.5px var(--sans);border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+.filters button:hover{border-color:var(--indigo)}
+.filters button[aria-pressed=true]{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.proj{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:30px;padding:30px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0;padding-top:4px}
+.proj[hidden]{display:none}
+.proj-fig{margin:0;align-self:start;border-radius:10px;overflow:hidden;background:#fff;border:1px solid var(--line);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center}
+.proj-fig img{width:100%;height:100%;object-fit:cover}
+.proj-fig svg{width:100%;height:100%;display:block}
+.proj-ctx{margin:0 0 4px;font:500 14px var(--sans);color:var(--copper)}
+.proj h3{font-size:23px;line-height:1.18;margin:0 0 10px;font-weight:700;font-stretch:106%}
+.proj-body>p{margin:0 0 10px}
+.stack{font:500 14.5px var(--sans);color:var(--muted);margin:12px 0 8px!important}
+.tags{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px}
+.tags li{font:500 12.5px var(--sans);background:#ECEBFB;color:var(--indigo-deep);padding:3px 9px;border-radius:5px}
+.dl{display:flex;flex-wrap:wrap;gap:8px}
+.dl .btn{font-size:14px;padding:8px 13px}
+.dl-note{font:400 14.5px/1.5 var(--sans);color:var(--muted);margin:26px 0 0}
+
+.otros{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 36px}
+.otros li{padding:14px 0;border-top:1px solid var(--line)}
+.otros h4{font-size:17px;margin:0 0 4px;font-weight:650}
+.otros h4 small{font-weight:500;color:var(--copper);font-size:13.5px;margin-left:4px}
+.otros p{margin:0;font-size:16px;color:#33385A}
+
+/* habilidades */
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:0 36px;margin:0}
+.skills>div{padding:13px 0;border-top:1px solid var(--line)}
+.skills dt{font:650 15.5px var(--sans);margin-bottom:3px}
+.skills dd{margin:0;font-size:16px;color:#33385A}
+
+.edu{list-style:none;padding:0;margin:0}
+.edu li{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:12px 0;border-top:1px solid var(--line)}
+.edu h3{font-size:19px;margin:0;font-weight:650}
+.edu p{margin:2px 0 0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);margin-top:20px;background:var(--panel)}
+.foot{max-width:1200px;margin:auto;padding:34px 24px 44px;display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between;font:400 15px var(--sans);color:var(--muted)}
+.foot strong{color:var(--ink);font-size:20px;font-weight:700;display:block;margin-bottom:4px}
+
+@media (max-width:980px){
+  .wrap{grid-template-columns:1fr;gap:28px;padding-top:28px}
+  .side{position:static;display:grid;grid-template-columns:120px 1fr;gap:4px 22px;align-items:center}
+  .side img{width:120px;height:120px;grid-row:span 2}
+  .side h1{margin:0}
+  .side .role{margin:0}
+  .side ul,.cvbox{grid-column:1/-1}
+  .side ul{margin:14px 0 6px;display:grid;grid-template-columns:1fr 1fr;column-gap:20px}
+  .side li:nth-last-child(2){border-bottom:1px solid var(--line)}
+  .cvbox{grid-template-columns:1fr 1fr}
+  .nav{display:none}
+  .lang{margin-left:auto}
+}
+@media (max-width:680px){
+  body{font-size:17px}
+  .top-in{height:56px;padding:0 16px}
+  .wrap{padding:22px 16px 0}
+  .side{grid-template-columns:92px 1fr}
+  .side img{width:92px;height:92px;border-width:3px}
+  .side h1{font-size:22px}
+  .side .role{font-size:14px}
+  .side ul{grid-template-columns:1fr}
+  .side li:nth-last-child(2){border-bottom:0}
+  .cvbox{grid-template-columns:1fr}
+  .proj{grid-template-columns:1fr;gap:16px}
+  .tl::before{left:7px}
+  .tl>li{grid-template-columns:1fr;gap:2px;padding-left:30px}
+  .tl>li::before{left:0}
+  .tl>li>div:last-child{padding-left:0}
+  .when{text-align:left}
+  .otros,.skills{grid-template-columns:1fr}
+  .edu li{grid-template-columns:1fr;gap:2px}
+  h2{font-size:26px}
+}
+@media print{.top,.filters,.dl,.cta{display:none}.wrap{display:block}.side{position:static}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#inicio">José Antonio Quiroz Luna</a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#experiencia"><span lang="es">Experiencia</span><span lang="en">Experience</span></a>
+      <a href="#proyectos"><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
+      <a href="#habilidades"><span lang="es">Habilidades</span><span lang="en">Skills</span></a>
+      <a href="#educacion"><span lang="es">Educación</span><span lang="en">Education</span></a>
+      <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap" id="inicio">
+  <aside class="side">
+    <img src="assets/img/foto.jpg" width="560" height="560" alt="José Antonio Quiroz Luna">
+    <h1>José Antonio Quiroz Luna</h1>
+    <p class="role"><span lang="es">Estudiante de Ingeniería Electrónica, 9.º semestre, UAA. Técnico en Mecatrónica.</span><span lang="en">Electronics Engineering student, 9th semester, UAA. Mechatronics technician.</span></p>
+    <ul>
+      <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Aguascalientes, <span lang="es">México</span><span lang="en">Mexico</span></span></li>
+      <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg><a href="mailto:joseantonioquirozluna@gmail.com">joseantonioquirozluna<wbr>@gmail.com</a></li>
+      <li><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5m12 5V18a3.4 3.4 0 0 0-1-2.6c3.2-.4 6.5-1.6 6.5-7a5.4 5.4 0 0 0-1.5-3.8 5 5 0 0 0-.1-3.7s-1.2-.4-3.9 1.4a13.4 13.4 0 0 0-7 0C6.3.5 5.1.9 5.1.9A5 5 0 0 0 5 4.6a5.4 5.4 0 0 0-1.5 3.8c0 5.4 3.3 6.6 6.5 7A3.4 3.4 0 0 0 9 18v3.5"/></svg><a href="https://github.com/JoseAQL">github.com/JoseAQL</a></li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span><span lang="es">Inglés técnico B1/B2</span><span lang="en">Technical English B1/B2</span></span></li>
+    </ul>
+    <div class="cvbox">
+      <a class="btn" lang="es" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_ES.pdf" download>Descargar CV (PDF)</a>
+      <a class="btn ghost" lang="es" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_EN.pdf" download>CV en inglés</a>
+      <a class="btn" lang="en" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_EN.pdf" download>Download CV (PDF)</a>
+      <a class="btn ghost" lang="en" href="assets/cv/Jose_Antonio_Quiroz_Luna_CV_ES.pdf" download>CV in Spanish</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero" aria-labelledby="claim">
+      <h2 class="claim" id="claim"><span lang="es">Hardware que ve, mide y se controla.</span><span lang="en">Hardware that sees, measures and controls.</span></h2>
+      <svg class="signal" viewBox="0 0 800 70" aria-hidden="true">
+        <line class="axis" x1="0" y1="35" x2="800" y2="35"/>
+        <path class="wave" pathLength="1" d="M2 35 C 22 35 26 8 46 8 S 70 62 90 62 S 114 8 134 8 S 158 62 178 62 S 202 14 222 14 S 246 56 266 56 S 290 22 310 22 S 334 48 354 48 S 378 30 398 35 L 430 35"/>
+        <path class="trace" pathLength="1" d="M430 35 H 560 L 585 12 H 700 L 725 35 H 778"/>
+        <circle class="pad" cx="785" cy="35" r="9"/>
+      </svg>
+      <div class="intro">
+        <p><span lang="es">Trabajo donde la electrónica toca el mundo real: equipo médico, visión artificial en dispositivos pequeños y máquinas industriales. He reparado máquinas de anestesia y sensores de rayos X a nivel componente, y hoy entreno detectores YOLO que corren en una Jetson Nano durante mis prácticas en el Centro de Investigaciones en Óptica.</span><span lang="en">I work where electronics meets the real world: medical equipment, computer vision on small devices and industrial machines. I have repaired anesthesia machines and X-ray sensors at component level, and today I train YOLO detectors that run on a Jetson Nano during my internship at the Centro de Investigaciones en Óptica (CIO).</span></p>
+        <p><span lang="es">Me gusta llevar un proyecto de la idea al aparato funcionando: esquemático, firmware, software, pieza impresa y documentación. Todo lo que ves abajo se puede descargar.</span><span lang="en">I like taking a project from idea to working device: schematic, firmware, software, printed parts and documentation. Everything below can be downloaded.</span></p>
+      </div>
+      <p class="seeking"><span lang="es">Busco un puesto en sistemas embebidos, visión artificial, instrumentación biomédica o automatización industrial.</span><span lang="en">Looking for a role in embedded systems, computer vision, biomedical instrumentation or industrial automation.</span></p>
+      <div class="cta">
+        <a class="btn" href="#proyectos"><span lang="es">Ver proyectos</span><span lang="en">See projects</span></a>
+        <a class="btn ghost" href="mailto:joseantonioquirozluna@gmail.com"><span lang="es">Escríbeme</span><span lang="en">Email me</span></a>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2>
+      <ol class="tl" reversed><li><div class="when"><span lang="es">sep. 2026 – hoy</span><span lang="en">Sep. 2026 – present</span></div><div><h3><span lang="es">Prácticas profesionales, visión artificial</span><span lang="en">Professional internship, computer vision</span></h3><p class="org">Centro de Investigaciones en Óptica (CIO)</p><ul class="bul"><li><span lang="es">Desarrollo el «Asesor de procesos inteligentes con RA»: guiado por proyección, verificación de charola y detección de instrumental en Jetson Nano.</span><span lang="en">Building the “Intelligent process advisor with AR”: projection guidance, tray verification and instrument detection on a Jetson Nano.</span></li><li><span lang="es">Construí la estación de escaneo para el dataset y entrené y optimicé el detector YOLO11 con TensorRT.</span><span lang="en">Built the dataset scanning station and trained and optimized the YOLO11 detector with TensorRT.</span></li></ul></div></li><li><div class="when"><span lang="es">nov. 2025 – abr. 2026</span><span lang="en">Nov. 2025 – Apr. 2026</span></div><div><h3><span lang="es">Técnico de soporte y mantenimiento de equipo crítico</span><span lang="en">Critical equipment support and maintenance technician</span></h3><p class="org">Hospital General de Zona No. 2, IMSS</p><ul class="bul"><li><span lang="es">Diagnóstico a nivel componente de máquinas de anestesia Atlan A350 y desfibriladores.</span><span lang="en">Component-level diagnosis of Atlan A350 anesthesia machines and defibrillators.</span></li><li><span lang="es">Calibración con simuladores biomédicos y analizadores de flujo bajo normas COFEPRIS y NOM.</span><span lang="en">Calibration with biomedical simulators and flow analyzers under COFEPRIS and NOM standards.</span></li><li><span lang="es">Fallas en HVAC (chillers, calderas) y redes neumáticas de vacío y vapor del hospital.</span><span lang="en">Fault analysis on HVAC (chillers, boilers) and the hospital's vacuum and steam networks.</span></li></ul></div></li><li><div class="when"><span lang="es">ene. 2024 – hoy</span><span lang="en">Jan. 2024 – present</span></div><div><h3><span lang="es">Especialista en mantenimiento electromecánico y biomédico</span><span lang="en">Electromechanical and biomedical maintenance specialist</span></h3><p class="org"><span lang="es">Empresa de mantenimiento de equipo dental</span><span lang="en">Dental equipment maintenance company</span></p><ul class="bul"><li><span lang="es">Reparación a nivel componente de electrónica de control, neumática e hidráulica de equipo dental.</span><span lang="en">Component-level repair of control electronics, pneumatics and hydraulics in dental equipment.</span></li><li><span lang="es">Reduje los tiempos de respuesta con un diagnóstico estructurado.</span><span lang="en">Reduced response times through structured diagnostics.</span></li></ul></div></li><li><div class="when"><span lang="es">ene. 2019 – jul. 2021</span><span lang="en">Jan. 2019 – Jul. 2021</span></div><div><h3><span lang="es">Técnico en electrónica automotriz</span><span lang="en">Automotive electronics technician</span></h3><p class="org"><span lang="es">Independiente</span><span lang="en">Independent contractor</span></p><ul class="bul"><li><span lang="es">Arneses, amplificadores, DSP y módulos de seguridad; microsoldadura y reparación de celulares por análisis de consumo.</span><span lang="en">Wiring harnesses, amplifiers, DSPs and security modules; microsoldering and phone repair by current-draw analysis.</span></li></ul></div></li></ol>
+    </section>
+
+    <section id="proyectos">
+      <h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2>
+      <div class="filters" role="group" aria-label="Filtrar proyectos"><button type="button" data-f="all" aria-pressed="true"><span lang="es">Todos</span><span lang="en">All</span></button><button type="button" data-f="vision" aria-pressed="false"><span lang="es">Visión artificial</span><span lang="en">Computer vision</span></button><button type="button" data-f="bio" aria-pressed="false"><span lang="es">Biomédico</span><span lang="en">Biomedical</span></button><button type="button" data-f="emb" aria-pressed="false"><span lang="es">Embebidos</span><span lang="en">Embedded</span></button><button type="button" data-f="ind" aria-pressed="false"><span lang="es">Industrial</span><span lang="en">Industrial</span></button><button type="button" data-f="hw" aria-pressed="false"><span lang="es">Hardware</span><span lang="en">Hardware</span></button><button type="button" data-f="sw" aria-pressed="false"><span lang="es">Software</span><span lang="en">Software</span></button></div>
+      <div id="lista">
+<article class="proj" id="p-asesor-de-procesos" data-tags="vision bio emb">
+  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#1E2250"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#3A3F7A"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Cámara</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">USB</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Camera</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">USB</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">visión + recetas</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">vision + steps</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Proyector</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">HDMI</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Projector</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">HDMI</text></svg></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Prácticas profesionales, CIO</span><span lang="en">Professional internship, CIO</span></p>
+    <h3><span lang="es">Asesor de procesos con realidad aumentada</span><span lang="en">Augmented-reality process advisor</span></h3>
+    <p><span lang="es">Una cámara y un proyector sobre la mesa guían al operador paso a paso: proyecta la receta, revisa que la charola esté completa y detecta el instrumental quirúrgico.</span><span lang="en">A camera and a projector above the table guide the operator step by step: it projects the procedure, checks that the tray is complete and detects surgical instruments.</span></p>
+    <ul class="bul"><li><span lang="es">Calibración automática cámara–proyector con marcadores ArUco y homografía.</span><span lang="en">Automatic camera–projector calibration with ArUco markers and homography.</span></li><li><span lang="es">14 modos controlados con la mano, la voz o el teclado, más un panel web para ajustarlo todo.</span><span lang="en">14 modes driven by hand gestures, voice or keyboard, plus a web panel to tune everything.</span></li><li><span lang="es">Captura de fotos y entrenamiento de la charola por lugares (Teachable Machine).</span><span lang="en">Photo capture and per-slot tray training (Teachable Machine).</span></li></ul>
+    <p class="stack">Jetson Nano, Python, OpenCV, MediaPipe, ArUco</p>
+    <ul class="tags"><li><span lang="es">Visión artificial</span><span lang="en">Computer vision</span></li><li><span lang="es">Biomédico</span><span lang="en">Biomedical</span></li><li><span lang="es">Embebidos</span><span lang="en">Embedded</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/asesor-de-procesos.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> asesor-de-procesos.zip <small>140 KB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-modo-austero" data-tags="vision bio emb">
+  <figure class="proj-fig"><img src="assets/img/proyectos/modo-austero.jpg" width="1100" height="880" loading="lazy" alt="Detector de instrumental quirúrgico en el borde"></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Modo Austero, Jetson Nano</span><span lang="en">Modo Austero, Jetson Nano</span></p>
+    <h3><span lang="es">Detector de instrumental quirúrgico en el borde</span><span lang="en">Edge surgical-instrument detector</span></h3>
+    <p><span lang="es">Entrené un YOLO11s propio para tijera, bisturí y pinza y lo corro en la Jetson Nano con TensorRT, dentro de un modo en C++ hecho para gastar lo mínimo.</span><span lang="en">I trained a custom YOLO11s for scissors, scalpel and forceps and run it on the Jetson Nano with TensorRT, inside a C++ mode built to use as little as possible.</span></p>
+    <ul class="bul"><li><span lang="es">Dataset propio de ~1,000 fotos tomadas con una estación de escaneo PAN/TILT, etiquetado en Roboflow y entrenado en Colab.</span><span lang="en">Own dataset of ~1,000 photos taken with a PAN/TILT scanning station, labeled in Roboflow and trained on Colab.</span></li><li><span lang="es">Exportación a ONNX y TensorRT; el modelo solo corre cuando hay movimiento.</span><span lang="en">Exported to ONNX and TensorRT; the model only runs when there is motion.</span></li><li><span lang="es">Tres versiones para comparar: Python, C++ y C++ optimizado con complementos .so, benchmark y tablero web.</span><span lang="en">Three versions to compare: Python, C++ and optimized C++ with .so plugins, benchmark and web dashboard.</span></li></ul>
+    <p class="stack">YOLO11, TensorRT, ONNX, C++, Roboflow</p>
+    <ul class="tags"><li><span lang="es">Visión artificial</span><span lang="en">Computer vision</span></li><li><span lang="es">Biomédico</span><span lang="en">Biomedical</span></li><li><span lang="es">Embebidos</span><span lang="en">Embedded</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/modo-austero.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> modo-austero.zip <small>7.4 MB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-puente-video" data-tags="emb sw hw">
+  <figure class="proj-fig"><img src="assets/img/proyectos/puente-video.jpg" width="1100" height="951" loading="lazy" alt="Puente Video: celular y PC por cable Ethernet"></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Proyecto personal</span><span lang="en">Personal project</span></p>
+    <h3><span lang="es">Puente Video: celular y PC por cable Ethernet</span><span lang="en">Puente Video: phone and PC over Ethernet</span></h3>
+    <p><span lang="es">Video en vivo en los dos sentidos entre un celular Android y una PC con Windows por un cable Ethernet directo, más nodos receptores Ethernet → HDMI para armar una pared de video.</span><span lang="en">Live two-way video between an Android phone and a Windows PC over a direct Ethernet cable, plus Ethernet → HDMI receiver nodes to build a video wall.</span></p>
+    <ul class="bul"><li><span lang="es">App Android en Java con CameraX y programa de PC en Python con OpenCV y servidor DHCP integrado.</span><span lang="en">Android app in Java with CameraX and a Python/OpenCV PC program with a built-in DHCP server.</span></li><li><span lang="es">Nodo receptor con STM32H743 y Raspberry Pi Pico 2: firmware, esquemático y PCB en KiCad.</span><span lang="en">Receiver node with STM32H743 and Raspberry Pi Pico 2: firmware, schematic and PCB in KiCad.</span></li><li><span lang="es">APK, .exe y firmware se compilan y revisan solos en GitHub Actions.</span><span lang="en">APK, .exe and firmware are built and checked automatically in GitHub Actions.</span></li></ul>
+    <p class="stack">Java, Python, STM32, KiCad, GitHub Actions</p>
+    <ul class="tags"><li><span lang="es">Embebidos</span><span lang="en">Embedded</span></li><li><span lang="es">Software</span><span lang="en">Software</span></li><li><span lang="es">Hardware</span><span lang="en">Hardware</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/puente-video.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> puente-video.zip <small>2.1 MB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-inyectora" data-tags="ind hw">
+  <figure class="proj-fig"><img src="assets/img/proyectos/inyectora.jpg" width="1100" height="756" loading="lazy" alt="Inyectora de plástico automatizada"></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Control Industrial Avanzado, UAA (en equipo)</span><span lang="en">Advanced Industrial Control, UAA (team)</span></p>
+    <h3><span lang="es">Inyectora de plástico automatizada</span><span lang="en">Automated plastic injection machine</span></h3>
+    <p><span lang="es">Inyectora pequeña con PLC, HMI e inyector neumático que fabrica una púa para abrir celulares. Diseñé el molde, la unidad de cierre y el SCADA.</span><span lang="en">Small injection machine with PLC, HMI and pneumatic injector that makes a phone-opening pick. I designed the mold, the clamping unit and the SCADA.</span></p>
+    <ul class="bul"><li><span lang="es">PLC Mitsubishi FX5U comunicado por SLMP con una Raspberry Pi que corre el SCADA en Node-RED.</span><span lang="en">Mitsubishi FX5U PLC talking SLMP to a Raspberry Pi running the Node-RED SCADA.</span></li><li><span lang="es">Molde de aluminio con expulsión, G-code para GRBL y prueba completa en madera cortada en CNC.</span><span lang="en">Aluminum mold with ejection, G-code for GRBL and a full wooden test build cut on CNC.</span></li><li><span lang="es">Todo el CAD se genera con scripts de Python; cinco versiones de la máquina documentadas.</span><span lang="en">All CAD is generated by Python scripts; five documented machine versions.</span></li></ul>
+    <p class="stack">FX5U, Node-RED, SLMP, Python CAD, CNC</p>
+    <ul class="tags"><li><span lang="es">Industrial</span><span lang="en">Industrial</span></li><li><span lang="es">Hardware</span><span lang="en">Hardware</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/inyectora-pua.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> inyectora-pua.zip <small>21.7 MB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-estacion" data-tags="vision emb">
+  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#1E2250"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#3A3F7A"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Cámara</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">manos</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Camera</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">hands</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">poseNet en GPU</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Jetson Nano</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">poseNet on GPU</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Proyector</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">menú en la mesa</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Projector</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">table menu</text></svg></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Jetson Nano y Raspberry Pi 4</span><span lang="en">Jetson Nano and Raspberry Pi 4</span></p>
+    <h3><span lang="es">Mesa interactiva por proyección</span><span lang="en">Interactive projection table</span></h3>
+    <p><span lang="es">La mesa se vuelve pantalla táctil: la punta del índice es el puntero y juntar pulgar e índice es el clic. Se calibra sola en unos 4 segundos.</span><span lang="en">The table becomes a touch screen: the index fingertip is the pointer and pinching thumb and index is the click. It calibrates itself in about 4 seconds.</span></p>
+    <ul class="bul"><li><span lang="es">Detección de la mano en la GPU con poseNet (jetson-inference) y un hilo por tarea.</span><span lang="en">Hand detection on the GPU with poseNet (jetson-inference) and one thread per task.</span></li><li><span lang="es">Calibración por puntos proyectados con homografía refinada por RANSAC sobre una rejilla de 5 × 4.</span><span lang="en">Calibration from projected dots with a homography refined by RANSAC over a 5 × 4 grid.</span></li><li><span lang="es">Versión en Python con modos de música, arte y juegos que corre igual en Jetson y en Raspberry.</span><span lang="en">Python version with music, art and game modes that runs on both Jetson and Raspberry.</span></li></ul>
+    <p class="stack">C++, CUDA, poseNet, OpenCV, MediaPipe</p>
+    <ul class="tags"><li><span lang="es">Visión artificial</span><span lang="en">Computer vision</span></li><li><span lang="es">Embebidos</span><span lang="en">Embedded</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/estacion-jetson-cpp.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> estacion-jetson-cpp.zip <small>70 KB</small></a><a class="btn" href="assets/downloads/estacion-proyeccion-python.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> estacion-proyeccion-python.zip <small>88 KB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-juego-kinect" data-tags="vision sw">
+  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#1E2250"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#3A3F7A"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Kinect</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">profundidad</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Kinect</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">depth</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">C++</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">pose y manos</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">C++</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">pose + hands</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Impresora</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">premio</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Printer</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">prize</text></svg></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Proyecto escolar, UAA</span><span lang="en">School project, UAA</span></p>
+    <h3><span lang="es">Juego de ejercicio con Kinect</span><span lang="en">Kinect exercise game</span></h3>
+    <p><span lang="es">Juego en C++ con menú estilo Xbox que se controla con el cuerpo, cuenta repeticiones y, al cumplir un reto, imprime un premio en una impresora térmica.</span><span lang="en">C++ game with an Xbox-style menu controlled with the body; it counts reps and prints a prize on a thermal printer when a challenge is completed.</span></p>
+    <ul class="bul"><li><span lang="es">Kinect con libfreenect, OpenCV y SDL2; MediaPipe Pose y Hands llamado desde C++.</span><span lang="en">Kinect with libfreenect, OpenCV and SDL2; MediaPipe Pose and Hands called from C++.</span></li><li><span lang="es">Diez versiones documentadas, desde el puntero por color hasta el esqueleto completo.</span><span lang="en">Ten documented versions, from a color pointer to full-body skeleton tracking.</span></li></ul>
+    <p class="stack">C++, OpenCV, SDL2, MediaPipe, Serial</p>
+    <ul class="tags"><li><span lang="es">Visión artificial</span><span lang="en">Computer vision</span></li><li><span lang="es">Software</span><span lang="en">Software</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/juego-kinect.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> juego-kinect.zip <small>120 KB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-amplificador" data-tags="hw">
+  <figure class="proj-fig"><img src="assets/img/proyectos/amplificador.jpg" width="1100" height="733" loading="lazy" alt="Amplificador de audio discreto de 3 etapas"></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Electrónica analógica, UAA</span><span lang="en">Analog electronics, UAA</span></p>
+    <h3><span lang="es">Amplificador de audio discreto de 3 etapas</span><span lang="en">Three-stage discrete audio amplifier</span></h3>
+    <p><span lang="es">Amplificador clase AB hecho solo con transistores, a 12 V para una bocina de 8 Ω, diseñado y simulado en LTspice.</span><span lang="en">Class-AB amplifier built only with transistors, 12 V supply into an 8 Ω speaker, designed and simulated in LTspice.</span></p>
+    <ul class="bul"><li><span lang="es">Ganancia de 25.6 dB a 1 kHz y ancho de banda de 28 Hz a 265 kHz (simulado).</span><span lang="en">25.6 dB gain at 1 kHz and 28 Hz–265 kHz bandwidth (simulated).</span></li><li><span lang="es">Análisis transitorio, de Bode y de THD contra potencia.</span><span lang="en">Transient, Bode and THD-vs-power analysis.</span></li></ul>
+    <p class="stack">LTspice, 2N3904, TIP41C/42C</p>
+    <ul class="tags"><li><span lang="es">Hardware</span><span lang="en">Hardware</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/amplificador-3-etapas.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> amplificador-3-etapas.zip <small>263 KB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-tallercnc" data-tags="sw hw">
+  <figure class="proj-fig"><img src="assets/img/proyectos/tallercnc.jpg" width="1100" height="676" loading="lazy" alt="TallerCNC"></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Software libre, GPL-3.0</span><span lang="en">Free software, GPL-3.0</span></p>
+    <h3><span lang="es">TallerCNC</span><span lang="en">TallerCNC</span></h3>
+    <p><span lang="es">App offline para diseñar, proyectar y cortar con láser o fresadora GRBL, sin cuenta ni suscripción.</span><span lang="en">Offline app to design, project and cut with a laser or GRBL mill, with no account or subscription.</span></p>
+    <ul class="bul"><li><span lang="es">25 plantillas paramétricas de cajas (FEFCO, ECMA), juegos de mesa y origami.</span><span lang="en">25 parametric templates for boxes (FEFCO, ECMA), board games and origami.</span></li><li><span lang="es">PCB desde Gerber, relieve desde imagen o STL, control de la máquina y flasheo de GRBL al Arduino.</span><span lang="en">PCB from Gerber, relief from image or STL, machine control and GRBL flashing to Arduino.</span></li></ul>
+    <p class="stack">JavaScript, Electron, GRBL, Web Serial</p>
+    <ul class="tags"><li><span lang="es">Software</span><span lang="en">Software</span></li><li><span lang="es">Hardware</span><span lang="en">Hardware</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/tallercnc.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> tallercnc.zip <small>1.9 MB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-proyector" data-tags="sw">
+  <figure class="proj-fig"><img src="assets/img/proyectos/proyector.jpg" width="1100" height="688" loading="lazy" alt="Proyector de documentos"></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">App de escritorio</span><span lang="en">Desktop app</span></p>
+    <h3><span lang="es">Proyector de documentos</span><span lang="en">Document projector</span></h3>
+    <p><span lang="es">Proyecta PDF, PowerPoint y Word derechos aunque el proyector esté chueco: arrastras 4 esquinas y listo. Se controla desde el celular con un QR.</span><span lang="en">Projects PDF, PowerPoint and Word straight even when the projector is crooked: drag 4 corners and you're done. Controlled from a phone via QR code.</span></p>
+    <ul class="bul"><li><span lang="es">Corrección de perspectiva por 4 esquinas, vista del presentador y puntero láser.</span><span lang="en">4-corner perspective correction, presenter view and laser pointer.</span></li><li><span lang="es">Instalador para Windows y AppImage para Linux compilados en GitHub Actions.</span><span lang="en">Windows installer and Linux AppImage built in GitHub Actions.</span></li></ul>
+    <p class="stack">Electron, JavaScript, LibreOffice</p>
+    <ul class="tags"><li><span lang="es">Software</span><span lang="en">Software</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/proyector-documentos.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> proyector-documentos.zip <small>557 KB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-mapeador" data-tags="sw">
+  <figure class="proj-fig"><img src="assets/img/proyectos/mapeador.jpg" width="1100" height="645" loading="lazy" alt="Mapeador de proyección"></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Proyecto personal</span><span lang="en">Personal project</span></p>
+    <h3><span lang="es">Mapeador de proyección</span><span lang="en">Projection mapper</span></h3>
+    <p><span lang="es">Projection mapping casero: acomodas figuras sobre objetos reales por sus 4 esquinas y proyectas neón, video o visuales que reaccionan a la música.</span><span lang="en">DIY projection mapping: fit shapes onto real objects by their 4 corners and project neon, video or music-reactive visuals.</span></p>
+    <ul class="bul"><li><span lang="es">Funciona en el navegador, en Raspberry Pi 4B y como app Android con salida HDMI.</span><span lang="en">Runs in the browser, on a Raspberry Pi 4B and as an Android app with HDMI output.</span></li></ul>
+    <p class="stack">JavaScript, Canvas, Web Audio, Android</p>
+    <ul class="tags"><li><span lang="es">Software</span><span lang="en">Software</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/mapeador-proyeccion.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> mapeador-proyeccion.zip <small>1.1 MB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-nomad-pi" data-tags="emb sw">
+  <figure class="proj-fig"><svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="100%" height="100%" fill="#1E2250"/><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#3A3F7A"/></pattern><rect width="100%" height="100%" fill="url(#g)"/><path d="M148.0 150.0 H176.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="148.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="176.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><path d="M304.0 150.0 H332.0" stroke="#D08A45" stroke-width="3" fill="none"/><circle cx="304.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><circle cx="332.0" cy="150.0" r="5" fill="#1E2250" stroke="#D08A45" stroke-width="3"/><rect x="20.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Raspberry Pi</text><text lang="es" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">4B</text><text lang="en" x="84.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Raspberry Pi</text><text lang="en" x="84.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">4B</text><rect x="176.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Hotspot</text><text lang="es" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">WiFi propio</text><text lang="en" x="240.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Hotspot</text><text lang="en" x="240.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">own WiFi</text><rect x="332.0" y="108" width="128" height="84" rx="6" fill="#262B63" stroke="#8B87F5" stroke-width="1.5"/><text lang="es" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Clientes</text><text lang="es" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">celular, laptop</text><text lang="en" x="396.0" y="145" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">Clients</text><text lang="en" x="396.0" y="168" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#B9B7F2">phone, laptop</text></svg></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Raspberry Pi 4B</span><span lang="en">Raspberry Pi 4B</span></p>
+    <h3><span lang="es">NOMAD Pi: servidor sin internet</span><span lang="en">NOMAD Pi: offline server</span></h3>
+    <p><span lang="es">Convierte una Raspberry Pi en un punto WiFi propio con Wikipedia, manuales de reparación, apps de electrónica y respaldo portable, todo sin internet.</span><span lang="en">Turns a Raspberry Pi into its own WiFi hotspot with Wikipedia, repair manuals, electronics apps and portable backup, all without internet.</span></p>
+    <ul class="bul"><li><span lang="es">Scripts de instalación en Bash y un tutorial completo en español.</span><span lang="en">Bash install scripts and a complete tutorial in Spanish.</span></li></ul>
+    <p class="stack">Linux, Bash, Kiwix, NetworkManager</p>
+    <ul class="tags"><li><span lang="es">Embebidos</span><span lang="en">Embedded</span></li><li><span lang="es">Software</span><span lang="en">Software</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/nomad-pi.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> nomad-pi.zip <small>35 KB</small></a></div>
+  </div>
+</article>
+<article class="proj" id="p-cyberdeck" data-tags="hw">
+  <figure class="proj-fig"><img src="assets/img/proyectos/cyberdeck.jpg" width="900" height="700" loading="lazy" alt="Cyberdeck para Raspberry Pi"></figure>
+  <div class="proj-body">
+    <p class="proj-ctx"><span lang="es">Diseño 3D, remix del Rugged Box de Whity</span><span lang="en">3D design, remix of Whity's Rugged Box</span></p>
+    <h3><span lang="es">Cyberdeck para Raspberry Pi</span><span lang="en">Raspberry Pi cyberdeck</span></h3>
+    <p><span lang="es">Carcasa imprimible tipo maletín para Raspberry Pi 4B, pantalla de 5" o 7", teclado y power bank.</span><span lang="en">Printable rugged case for a Raspberry Pi 4B, 5" or 7" screen, keyboard and power bank.</span></p>
+    <ul class="bul"><li><span lang="es">Piezas generadas por código, con topes de bisagra para que la tapa quede abierta como laptop.</span><span lang="en">Parts generated by code, with hinge stops so the lid stays open like a laptop.</span></li></ul>
+    <p class="stack">CAD paramétrico, STL, STEP</p>
+    <ul class="tags"><li><span lang="es">Hardware</span><span lang="en">Hardware</span></li></ul>
+    <div class="dl"><a class="btn" href="assets/downloads/cyberdeck-rugged-box.zip" download><span lang="es">Descargar</span><span lang="en">Download</span> cyberdeck-rugged-box.zip <small>2.8 MB</small></a></div>
+  </div>
+</article></div>
+      <p class="dl-note"><span lang="es">Cada descarga es un .zip con el código, los diseños y la guía del proyecto.</span><span lang="en">Each download is a .zip with the project's code, designs and guide (written in Spanish).</span></p>
+    </section>
+
+    <section id="otros">
+      <h2><span lang="es">Otros trabajos</span><span lang="en">Other work</span></h2>
+      <ul class="otros"><li><h4><span lang="es">Reparación de un sensor de rayos X intraoral</span><span lang="en">Intraoral X-ray sensor repair</span> <small><span lang="es">Mar. 2026</span><span lang="en">Mar. 2026</span></small></h4><p><span lang="es">Aislé un corto con multímetro y osciloscopio, localicé la falla en una soldadura, reparé con microsoldadura y máscara UV, y verifiqué la adquisición con el software clínico.</span><span lang="en">Isolated a short with multimeter and oscilloscope, located the fault at a solder joint, repaired it with microsoldering and UV masking, and verified acquisition in the clinical software.</span></p></li><li><h4><span lang="es">Checador de huellas y NFC en Raspberry Pi</span><span lang="en">Fingerprint and NFC attendance on Raspberry Pi</span> <small><span lang="es">2026</span><span lang="en">2026</span></small></h4><p><span lang="es">Registro de entradas y salidas sin PC ni internet con lector NITGEN HFDU14 y PN532, con panel web de administración.</span><span lang="en">Offline check-in/out with a NITGEN HFDU14 reader and a PN532, with a web admin panel.</span></p></li><li><h4><span lang="es">Calificador de suturas con visión</span><span lang="en">Vision-based suture grader</span> <small><span lang="es">En desarrollo</span><span lang="en">In progress</span></small></h4><p><span lang="es">Modelo tipo YOLO en Jetson Nano para dar una segunda opinión sobre suturas en pads de práctica de enfermería.</span><span lang="en">YOLO-type model on a Jetson Nano that gives a second opinion on sutures made on nursing practice pads.</span></p></li><li><h4><span lang="es">Dron con control PID digital, IoT y RF</span><span lang="en">Drone with digital PID control, IoT and RF</span> <small><span lang="es">En desarrollo</span><span lang="en">In progress</span></small></h4><p><span lang="es">Controlador de vuelo con PID digital modelado con transformada Z y de Laplace, control RF inalámbrico y monitoreo IoT.</span><span lang="en">Flight controller with digital PID modeled with Z and Laplace transforms, wireless RF control and IoT monitoring.</span></p></li><li><h4><span lang="es">Comunicación multi-PLC con Modbus</span><span lang="en">Multi-PLC Modbus communication</span> <small><span lang="es">En desarrollo</span><span lang="en">In progress</span></small></h4><p><span lang="es">Redes Modbus RTU/TCP entre PLC Siemens y Mitsubishi: direccionamiento de registros y diagnóstico de comunicación.</span><span lang="en">Modbus RTU/TCP networks between Siemens and Mitsubishi PLCs: register addressing and communication diagnostics.</span></p></li><li><h4><span lang="es">Adquisición de pH con STM32</span><span lang="en">STM32 pH acquisition</span></h4><p><span lang="es">Firmware en C para un ARM Cortex-M: acondicionamiento de señal, calibración por software, salida por DAC y monitoreo por UART.</span><span lang="en">C firmware on an ARM Cortex-M: signal conditioning, software calibration, DAC output and UART monitoring.</span></p></li><li><h4><span lang="es">Antenas Yagi y monopolo λ/4 · telemetría LoRa</span><span lang="en">Yagi and λ/4 monopole antennas · LoRa telemetry</span></h4><p><span lang="es">Construcción y caracterización de antenas (ROE, impedancia, parámetros S) y enlace de telemetría LoRa con protección contra descargas.</span><span lang="en">Built and characterized antennas (SWR, impedance, S-parameters) and a LoRa telemetry link with surge protection.</span></p></li></ul>
+    </section>
+
+    <section id="habilidades">
+      <h2><span lang="es">Habilidades</span><span lang="en">Skills</span></h2>
+      <dl class="skills"><div><dt><span lang="es">Visión artificial e IA</span><span lang="en">Computer vision and AI</span></dt><dd>YOLO11, Roboflow, ONNX, TensorRT, OpenCV, MediaPipe, poseNet, ArUco, Kinect SDK</dd></div><div><dt><span lang="es">Embebidos y firmware</span><span lang="en">Embedded and firmware</span></dt><dd>STM32 / CubeIDE, ARM Cortex-M, C, C++ multihilo, Jetson Nano, Raspberry Pi, UART, SPI, I2C, ADC/DAC</dd></div><div><dt><span lang="es">Automatización industrial</span><span lang="en">Industrial automation</span></dt><dd>PLC Mitsubishi FX5U, PLC Siemens, Ladder / STL, Modbus RTU/TCP, SLMP, Node-RED, HMI, neumática</dd></div><div><dt><span lang="es">Instrumentación biomédica</span><span lang="en">Biomedical instrumentation</span></dt><dd>Monitores de signos vitales, desfibriladores, máquinas de anestesia, sensores de imagen, COFEPRIS / NOM</dd></div><div><dt><span lang="es">Control y señales</span><span lang="en">Control and signals</span></dt><dd>PID analógico y digital, transformada Z y de Laplace, MATLAB / Simulink</dd></div><div><dt><span lang="es">RF y comunicaciones</span><span lang="en">RF and communications</span></dt><dd>Antenas Yagi y monopolo, ROE y parámetros S, LoRa, MQTT, Wi-Fi embebido</dd></div><div><dt><span lang="es">Diseño electrónico y CAD</span><span lang="en">Electronic design and CAD</span></dt><dd>KiCad, Altium, LTspice, Proteus, Cadence, Verilog, SolidWorks, AutoCAD</dd></div><div><dt><span lang="es">Software</span><span lang="en">Software</span></dt><dd>Python, Java (Android), JavaScript, Electron, Linux, Bash, Git, GitHub Actions</dd></div><div><dt><span lang="es">Taller</span><span lang="en">Bench</span></dt><dd>Osciloscopio, microsoldadura SMD/THT, analizador de flujo, lectura de esquemáticos y hojas de datos en inglés</dd></div></dl>
+    </section>
+
+    <section id="educacion">
+      <h2><span lang="es">Educación</span><span lang="en">Education</span></h2>
+      <ul class="edu">
+        <li><div class="when">2022 – <span lang="es">hoy</span><span lang="en">present</span></div><div><h3><span lang="es">Ingeniería Electrónica, 9.º semestre</span><span lang="en">B.S. Electronics Engineering, 9th semester</span></h3><p>Universidad Autónoma de Aguascalientes (UAA)</p><p><span lang="es">Este semestre: Control Industrial Avanzado, Diseño de Circuitos Integrados Analógicos, Verilog y Proyecto Terminal.</span><span lang="en">This semester: Advanced Industrial Control, Analog IC Design, Verilog and Capstone Project.</span></p></div></li>
+        <li><div class="when">2018 – 2021</div><div><h3><span lang="es">Técnico en Mecatrónica</span><span lang="en">Technical degree in Mechatronics</span></h3><p>C.B.T.I.S. No. 168</p></div></li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<footer id="contacto">
+  <div class="foot">
+    <div><strong><span lang="es">¿Hablamos?</span><span lang="en">Let's talk</span></strong><span lang="es">Respondo por correo, normalmente el mismo día.</span><span lang="en">I reply by email, usually the same day.</span></div>
+    <div class="cta">
+      <a class="btn" href="mailto:joseantonioquirozluna@gmail.com">joseantonioquirozluna@gmail.com</a>
+      <a class="btn ghost" href="https://github.com/JoseAQL">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, KEY="lang";
+  var titles={es:"José Antonio Quiroz Luna · Ingeniería Electrónica",en:"José Antonio Quiroz Luna · Electronics Engineering"};
+  function setLang(l){
+    root.dataset.lang=l; root.lang=l; document.title=titles[l];
+    document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l)});
+    try{localStorage.setItem(KEY,l)}catch(e){}
+  }
+  var saved=null; try{saved=localStorage.getItem(KEY)}catch(e){}
+  var q=new URLSearchParams(location.search).get("lang");
+  setLang(q==="en"||q==="es"?q:(saved||((navigator.language||"es").slice(0,2)==="es"?"es":"en")));
+  document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
+
+  var btns=document.querySelectorAll(".filters button"), items=document.querySelectorAll(".proj");
+  btns.forEach(function(b){b.addEventListener("click",function(){
+    var f=b.dataset.f;
+    btns.forEach(function(x){x.setAttribute("aria-pressed",x===b)});
+    items.forEach(function(it){it.hidden=!(f==="all"||it.dataset.tags.split(" ").indexOf(f)>-1)});
+  })});
+})();
+</script>
+</body>
+</html>
